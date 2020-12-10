@@ -1,0 +1,114 @@
+<!DOCTYPE html> <!-- Just needed to make sure the HTML document behaves correctly. -->
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> <!-- Universal character set that allows the page to display any human language on a website.-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Diana Wi"> <!-- Who wrote the page. -->
+        <meta name="description" content="Brieffcase is Diana's collection of coding projects to showcase my skills in front-end development."> <!-- Describes about the page and includes related keywords which will help the page appear higher in relevant searches. -->
+        <!-- <meta property="og:image" content=""> -->
+        <meta property="og:description" content="Brieffcase is Diana's collection of coding projects to showcase my skills in front-end development.">
+        <meta property="og:title" content="Brieffcase">
+        <title>Brieffcase | Diana's Collection of Coding Projects</title> <!-- Title of the overall HTML document. This content will be showned in bookmarks and used in search results. -->
+
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles/style.css" type="text/css">
+
+        <script src="scripts/main.js" type="text/javascript" defer></script>
+    </head>
+
+    <body>
+   
+        <div class="pagelayout">
+            <div id="sidebar">
+                <a href="index.html" class="brand-name">Back to Brieffcase</a>
+                <div class="sidebar-nav">
+                    <h5>Diana's Projects <button class="small-button reload">Reload</button></h5>
+                    <nav>
+                        <ul class="quicklinks">   
+                            <li><a href="#1"><span>1</span> Number Guessing Game</a></li>
+                            <li><a href="#2"><span>2</span> Pweeety Greeting</a></li>
+                            <li><a href="#3"><span>3</span> Christmas Message Filtering</a></li>
+                        </ul>
+                    </nav>
+                    <p>This is a growing list of projects, so come back later for more.</p>
+                </div>
+            </div>
+
+            <div id="content">
+                
+                <div id="1" class="card">
+                    <div class="cardheader">
+                        <div>
+                            <h3>Project 1 - Number Guessing Game</h3>
+                            <ul class="tags">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cardbody centered">
+                        <div class="project-container">
+                            <div class="guessing-game-header">
+                                <div id="guess-result">
+                                    <h4 class="guess-feedback"></h4>
+                                </div>
+                            </div>
+                            <button type="submit" id="play-guessgame">Let's Play</button>
+                            <div class="guessing-game-form">
+                                <label for="guess-input"></label>
+                                <input type="text" id="guess-input" placeholder="Enter Number">
+                                <button type="submit" id="guess-submit">Guess</button>
+                            </div>
+                            <ul id="guess-history"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="2" class="card">
+                    <div class="cardheader">
+                        <div>
+                            <h3>Project 2 - Pweeety Greeting</h3>
+                            <ul class="tags">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cardbody centered">
+                        <div class="project-container">
+                            <div class="greeting-container">
+                                <h4 class="greeting-message">Hey. What's your name? :)</h4>
+                                <div class="greeting-form">
+                                    <label for="greeting-input"></label>
+                                    <input type="text" id="greeting-input" placeholder="Enter Name">
+                                    <button type="submit" id="greeting-submit">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="3" class="card">
+                    <div class="cardheader">
+                        <div>
+                            <h3>Project 3 - Christmas Message Filtering</h3>
+                            <ul class="tags">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cardbody centered">
+                        <div class="project-container">
+                            <button class="christmasfilter">Show Christmas Messages Only</button>
+                            <ul class="christmasmessages"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
