@@ -4,12 +4,42 @@
 //.push() and .pop() - add and remove an item at the end of an array.
 //.unshift() and .shift() - add and remove an item at the beginning of an array.
 
+
 const reload = document.querySelector('.reload');
 
 reload.onclick = function() {
     window.location.reload();
 };
 
+const updatedDate = 'December 10, 2020';
+const updatedMessage = document.querySelector('.updated-date');
+updatedMessage.textContent = `Last updated on ${updatedDate}`;
+
+// Listing of project titles
+
+const allprojects = [
+    'Number Guessing Game',
+    'Christmas Message Filtering',
+    'Interactive Image Gallery'
+];
+
+const totalProject = allprojects.length;
+const quicklinks = document.querySelector('.quicklinks');
+
+for (let i = 0; i < totalProject; i++) {
+    const projectName = allprojects[i];
+    const newProjectItem = document.createElement('li');
+    const newProjectLink = document.createElement('a');
+    newProjectLink.setAttribute('href', `#${i+1}`);
+    const newProjectNumber = document.createElement('span');
+    newProjectNumber.textContent = `${i+1}`;
+    newProjectLink.append(newProjectNumber, projectName);
+    newProjectItem.appendChild(newProjectLink);
+    quicklinks.appendChild(newProjectItem);
+
+    const projectTitles = document.querySelectorAll('.cardtitle'); //select all card titles
+    projectTitles[i].textContent = `Project ${i+1} - ${projectName}`;
+}
 
 
 // Project 1 - Number Guessing Game
@@ -161,62 +191,7 @@ function clearInput() {
 };
 
 
-
-// Project 2 - Greeting
-
-const greetButton = document.getElementById('greeting-submit');
-
-greetButton.onclick = function() {
-    greetUser();
-};
-
-const greetContainer = document.querySelector('.greeting-container');
-const greetingForm = document.querySelector('.greeting-form');
-const greetingInput = document.getElementById('greeting-input');
-const greetMessage = document.querySelector('.greeting-message');
-const smallMessage = document.createElement('p');
-
-greetingInput.addEventListener("keyup", function(event) {
-    if (event.code === 'Enter') {
-        event.preventDefault();
-        greetButton.click();
-    }
-});
-
-function greetUser() {
-    let userName = greetingInput.value;
-    
-    let letters=/^[a-zA-Z]+$/;
-
-    if(!userName) {
-        greetMessage.textContent = `Aww. Pweeese tell us your name. Pweeety Pweeese.`;
-        greetingInput.focus();
-    } else {
-        if (!userName.match(letters)) {
-            greetMessage.textContent = `Letters only.`;
-            greetingInput.focus();
-            greetingInput.value = '';
-            return false;
-        } else {
-            greetingForm.parentNode.removeChild(greetingForm);
-            greetMessage.textContent = `Hey pweeety ${capitalize(userName)}. Nice to meet you.`;
-            smallMessage.textContent = `By the way, do you know a place that sells a great burrito? I am craving one right now, especially the shimp burrito. Yummm.`;
-            greetContainer.appendChild(greetMessage);
-            greetContainer.appendChild(smallMessage);
-        }
-    }
-};
-
-function capitalize(name) {
-    let lower = name.toLowerCase();
-    let firstletter = lower.slice(0, 1);
-    let capitalizedName = lower.replace(firstletter, firstletter.toUpperCase());
-    return capitalizedName;
-};
-
-
-
-// Project 3 - Christmas Messages Filtering
+// Project 2 - Christmas Messages Filtering
 
 
 const christmasMessages = document.querySelector('.christmasmessages');
@@ -267,7 +242,7 @@ christmasFilter.onclick = function() {
 
 
 
-// Project 4 - Image Gallery
+// Project 3 - Image Gallery
 
 const fullimage = document.querySelector('.fullimage');
 const thumbnails = document.querySelector('.thumbnails');
@@ -307,29 +282,4 @@ function showImage() {
 if(!fullimage.hasChildNodes()) {
     image.setAttribute('src', images[0]);
     fullimage.appendChild(image);
-}
-
-const allprojects = [
-    'Number Guessing Game',
-    'Pweeety Greeting',
-    'Christmas Message Filtering',
-    'Interactive Image Gallery'
-];
-
-const totalProject = allprojects.length;
-const quicklinks = document.querySelector('.quicklinks');
-
-for (let i = 0; i < totalProject; i++) {
-    const projectName = allprojects[i];
-    const newProjectItem = document.createElement('li');
-    const newProjectLink = document.createElement('a');
-    newProjectLink.setAttribute('href', `#${i+1}`);
-    const newProjectNumber = document.createElement('span');
-    newProjectNumber.textContent = `${i+1}`;
-    newProjectLink.append(newProjectNumber, projectName);
-    newProjectItem.appendChild(newProjectLink);
-    quicklinks.appendChild(newProjectItem);
-
-    const projectTitles = document.querySelectorAll('.cardtitle'); //select all card titles
-    projectTitles[i].textContent = `Project ${i+1} - ${projectName}`;
 }
