@@ -4,9 +4,12 @@
 //.push() and .pop() - add and remove an item at the end of an array.
 //.unshift() and .shift() - add and remove an item at the beginning of an array.
 
-document.querySelector('.reload').onclick = function() {
+const reload = document.querySelector('.reload');
+
+reload.onclick = function() {
     window.location.reload();
 };
+
 
 
 // Project 1 - Number Guessing Game
@@ -40,13 +43,13 @@ play_guessgame.onclick = function() {
     small_note.textContent = "We'll let you know if it is low or high.";
     guess_form.style.display = 'block';
     guess_input.focus();
-}
+};
 
 function checkMyNumber() {
     let myAnswer = guess_input.value;
 
     if (myAnswer=='') {
-        guess_feedback.textContent = "Excuse me. You need to guess a number to play this game."
+        guess_feedback.textContent = "Excuse me. You need to guess a number to play this game.";
         small_note.textContent = '';
         clearInput();
     } else if (myAnswer === "0") {
@@ -56,15 +59,15 @@ function checkMyNumber() {
     } else {
         let myNumber = Number(myAnswer);
         if (!myNumber) {
-            guess_feedback.textContent = "Numbers only."
+            guess_feedback.textContent = "Numbers only.";
             small_note.textContent = '';
             clearInput();
         } else if (myNumber % 1 != 0) {
-            guess_feedback.textContent = "No no no. No decimals."
+            guess_feedback.textContent = "No no no. No decimals.";
             small_note.textContent = 'Whole number please.';
             clearInput();
         } else if (myNumber < 0) {
-            guess_feedback.textContent = "No negative number."
+            guess_feedback.textContent = "No negative number.";
             small_note.textContent = 'We only accept positive number... for positive vibe.';
             clearInput();       
         } else {
@@ -165,7 +168,7 @@ const greetButton = document.getElementById('greeting-submit');
 
 greetButton.onclick = function() {
     greetUser();
-}
+};
 
 const greetContainer = document.querySelector('.greeting-container');
 const greetingForm = document.querySelector('.greeting-form');
@@ -202,14 +205,14 @@ function greetUser() {
             greetContainer.appendChild(smallMessage);
         }
     }
-}
+};
 
 function capitalize(name) {
     let lower = name.toLowerCase();
     let firstletter = lower.slice(0, 1);
     let capitalizedName = lower.replace(firstletter, firstletter.toUpperCase());
     return capitalizedName;
-}
+};
 
 
 
@@ -243,7 +246,6 @@ holidayMessages();
 
 const christmasFilter = document.querySelector('.christmasfilter');
 const showHolidayMessages = document.createElement('button');
-showHolidayMessages.textContent = 'Show all holiday messages'
 
 christmasFilter.onclick = function() {
     while(christmasMessages.hasChildNodes()) {
@@ -261,5 +263,73 @@ christmasFilter.onclick = function() {
             christmasMessages.appendChild(greetingList);
         }
     }
+};
+
+
+
+// Project 4 - Image Gallery
+
+const fullimage = document.querySelector('.fullimage');
+const thumbnails = document.querySelector('.thumbnails');
+
+const image = document.createElement('img');
+
+
+const images = [
+    'images/annie-spratt-Jr8byYZmTTU-unsplash.jpg',
+    'images/drew-beamer-Se7vVKzYxTI-unsplash.jpg',
+    'images/dwain-norsa-HXXJLY44WRI-unsplash.jpg',
+    'images/hardik-pandya--Ey_0PMz900-unsplash.jpg'
+]
+
+for (let i = 0; i < images.length; i++) {
+    const thumbnail = document.createElement('li');
+    const img = document.createElement('img');
+    const imgLink = images[i];
+    img.setAttribute('src', imgLink);
+    thumbnail.appendChild(img);
+    thumbnails.appendChild(thumbnail);
+    
+    img.addEventListener('click', showImage);
+    img.onmouseover = function() {
+        img.style.border = '4px solid rgb(132, 43, 248)';
+    };
+    img.onmouseout = function() {
+        img.style.border = '';
+    };
 }
 
+function showImage() {
+    image.setAttribute('src', `${this.getAttribute('src')}`);
+    fullimage.appendChild(image);
+}
+
+if(!fullimage.hasChildNodes()) {
+    image.setAttribute('src', images[0]);
+    fullimage.appendChild(image);
+}
+
+const allprojects = [
+    'Number Guessing Game',
+    'Pweeety Greeting',
+    'Christmas Message Filtering',
+    'Interactive Image Gallery'
+];
+
+const totalProject = allprojects.length;
+const quicklinks = document.querySelector('.quicklinks');
+
+for (let i = 0; i < totalProject; i++) {
+    const projectName = allprojects[i];
+    const newProjectItem = document.createElement('li');
+    const newProjectLink = document.createElement('a');
+    newProjectLink.setAttribute('href', `#${i+1}`);
+    const newProjectNumber = document.createElement('span');
+    newProjectNumber.textContent = `${i+1}`;
+    newProjectLink.append(newProjectNumber, projectName);
+    newProjectItem.appendChild(newProjectLink);
+    quicklinks.appendChild(newProjectItem);
+
+    const projectTitles = document.querySelectorAll('.cardtitle'); //select all card titles
+    projectTitles[i].textContent = `Project ${i+1} - ${projectName}`;
+}
