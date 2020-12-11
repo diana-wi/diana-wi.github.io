@@ -32,6 +32,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #05000e;
+  color: #d3cfd6;
   font-family: "Open Sans", sans-serif;
   line-height: 1.75;
 }
@@ -70,12 +71,6 @@ small,
 
 p {
   margin-bottom: 1rem;
-}
-
-p,
-li,
-label {
-  color: #d3cfd6;
 }
 
 a {
@@ -332,7 +327,7 @@ input:focus {
   border-radius: 8px;
 }
 
-.project-container ul {
+.project-container > ul {
   padding: 24px;
   width: 80%;
   margin: 0 auto;
@@ -343,6 +338,29 @@ input:focus {
   padding: 0.5em 24px;
   margin-bottom: 0.5em;
   text-align: left;
+}
+
+.fullimage > img {
+  width: 100%;
+  height: auto;
+}
+
+ul.thumbnails {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 100%;
+}
+
+ul.thumbnails li {
+  width: 25%;
+}
+
+ul.thumbnails img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media screen and (max-width: 640px) {
@@ -398,4 +416,3 @@ input:focus {
     width: 980px;
   }
 }
-/*# sourceMappingURL=style.css.map */
