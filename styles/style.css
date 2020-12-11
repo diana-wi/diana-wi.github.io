@@ -401,7 +401,7 @@ ul.thumbnails img {
     height: auto;
     background-color: #05000e;
   }
-  #content {
+  .content {
     width: 100%;
     margin-left: 0;
     padding: 0;
@@ -416,3 +416,4 @@ ul.thumbnails img {
     width: 980px;
   }
 }
+/*# sourceMappingURL=style.css.map */
